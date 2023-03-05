@@ -31,7 +31,7 @@ DB_TEST_DATABASE=bumpa_testdb
 DB_TEST_USERNAME=root
 DB_TEST_PASSWORD=password
 ```
-3. Create Database
+3. Create Test Database
 
 
 
