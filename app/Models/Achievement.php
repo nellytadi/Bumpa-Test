@@ -9,6 +9,7 @@ class Achievement extends Model
 {
     use HasFactory;
 
-    public const FIRST_ACHIEVEMENT = "First Purchase Achievement";
-    public const FIVE_PURCHASES_ACHIEVEMENT = "Five Purchases Achievement";
+     const NUMBER_OF_ACHIEVEMENTS_REQUIRED_TO_UNLOCK_BADGE = 3;
+     const FIRST_ACHIEVEMENT = "First Purchase Achievement";
+     const FIVE_PURCHASES_ACHIEVEMENT = "Five Purchases Achievement";
 }

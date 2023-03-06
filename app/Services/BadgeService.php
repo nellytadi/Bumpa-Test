@@ -5,6 +5,7 @@ namespace App\Services;
 
 
 use App\Events\BadgeUnlocked;
+use App\Models\Achievement;
 use App\Models\Badge;
 use Exception;
 
@@ -21,7 +22,7 @@ class BadgeService
         // Sample - if user has 2,4,6 achievements then assign first, second, third badge respectively
         $userAchievements = $this->user->achievements();
         $countUserAchievements = $userAchievements->count();
-        if ($countUserAchievements > 0 && $countUserAchievements % 2 === 0) {
+        if ($countUserAchievements > 0 && $countUserAchievements % Achievement::NUMBER_OF_ACHIEVEMENTS_REQUIRED_TO_UNLOCK_BADGE === 0) {
             $badge = Badge::where('order', $countUserAchievements - 1)->first();
             $this->user->badges()->sync($badge->id);
             $this->triggerBadgeUnlockedEvent($badge);
@@ -39,4 +40,6 @@ class BadgeService
             throw new Exception($exception->getMessage());
         }
     }
+
+
 }

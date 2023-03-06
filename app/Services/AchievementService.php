@@ -5,6 +5,7 @@ namespace App\Services;
 
 use App\Events\AchievementUnlocked;
 use App\Models\Achievement;
+use App\Models\Badge;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 
@@ -56,6 +57,21 @@ class AchievementService
             $this->user->achievements()->attach($this->achievement->id);
             $this->triggerAchievementUnlockedEvent();
         }
+    }
+
+    /*
+     *  Assuming badge is unlocked after every x achievement
+     * */
+    public function getAchievementsRequiredToUnlockBadge(): int {
+//        $this->user->achievements();
+//
+//        $userAchievements = $this->user->achievements();
+//        $countUserAchievements = $userAchievements->count();
+//        if ($countUserAchievements > 0 && $countUserAchievements % Achievement::NUMBER_OF_ACHIEVEMENTS_REQUIRED_TO_UNLOCK_BADGE === 0) {
+//            $badge = Badge::where('order', $countUserAchievements - 1)->first();
+//
+//        }
+        return 0;
     }
 
 
